@@ -1,7 +1,7 @@
 name = "haima-imagine-background-remover"
 compatibility_date = "2026-03-27"
 compatibility_flags = ["nodejs_compat"]
-pages_build_output_dir = ".vercel/output/static"
+pages_build_output_dir = "out"
 
 [observability]
 enabled = true
