@@ -55,13 +55,29 @@ export function UploadTool() {
     setError('');
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 500));
-      setError(
-        'Cloudflare Pages 版本已先上线静态页面，抠图接口正在切换部署方式。当前可先完成站点上线，随后再补可用的在线抠图能力。',
-      );
-      setResultUrl('');
+      const formData = new FormData();
+      formData.append('image_file', file);
+
+      const response = await fetch('/api/remove-background', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        const contentType = response.headers.get('content-type') || '';
+        if (contentType.includes('application/json')) {
+          const data = (await response.json()) as { message?: string };
+          throw new Error(data.message || 'Failed to remove background. Please try again.');
+        }
+        throw new Error('Failed to remove background. Please try again.');
+      }
+
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      setResultUrl(url);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong.');
+      setResultUrl('');
     } finally {
       setIsLoading(false);
     }
