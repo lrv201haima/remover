@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:cf": "next build && next-on-pages --skip-build",
+    "build:cf": "next-on-pages",
     "start": "next start",
     "lint": "next lint",
     "pages:build": "next-on-pages",

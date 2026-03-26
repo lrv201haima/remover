@@ -117,8 +117,9 @@ export default function HomePage() {
             <div className="mt-6 space-y-5">
               {[
                 'Upload a JPG, PNG, or WebP image from your browser.',
-                'The image is sent to the remove.bg API through a secure server-side route.',
-                'Download the transparent PNG result immediately after processing.',
+                'Upload a JPG, PNG, or WebP image from your browser.',
+                'Launch the SEO landing page instantly on Cloudflare Pages.',
+                'Add a dedicated background-removal API deployment in the next step.',
               ].map((step, index) => (
                 <div key={step} className="flex gap-4">
                   <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-900 text-sm font-semibold text-white">
