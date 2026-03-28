@@ -1,0 +1,16 @@
+name = "haima-imagine-remove-bg"
+main = "index.ts"
+compatibility_date = "2026-03-27"
+
+[vars]
+# REMOVE_BG_API_KEY is set via `wrangler secret put REMOVE_BG_API_KEY`
+
+# 可选：绑定一个 KV namespace 用于缓存（未来扩展）
+# [[kv_namespaces]]
+# binding = "CACHE"
+# id = "..."
+
+# 可选：绑定 R2 用于大文件处理（如果需要）
+# [[r2_buckets]]
+# binding = "IMAGES"
+# bucket_name = "..."

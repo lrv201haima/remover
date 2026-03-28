@@ -4,6 +4,7 @@ import { useMemo, useRef, useState } from 'react';
 
 const MAX_SIZE = 10 * 1024 * 1024;
 const ACCEPTED_TYPES = ['image/jpeg', 'image/png', 'image/webp'];
+const API_URL = process.env.NEXT_PUBLIC_REMOVE_BG_API_URL ?? '/api/remove-background';
 
 export function UploadTool() {
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -58,7 +59,7 @@ export function UploadTool() {
       const formData = new FormData();
       formData.append('image_file', file);
 
-      const response = await fetch('/api/remove-background', {
+      const response = await fetch(API_URL, {
         method: 'POST',
         body: formData,
       });
