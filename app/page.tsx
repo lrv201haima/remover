@@ -1,4 +1,5 @@
 import { UploadTool } from '@/components/upload-tool';
+import { GoogleSignIn } from '@/components/google-sign-in';
 
 const faqItems = [
   {
@@ -31,6 +32,10 @@ const useCases = [
 export default function HomePage() {
   return (
     <main>
+      <div className="flex justify-end px-6 py-3 border-b border-slate-100 bg-white/80 backdrop-blur">
+        <GoogleSignIn />
+      </div>
+
       <section className="hero-grid relative overflow-hidden border-b border-slate-200 bg-white">
         <div className="absolute inset-x-0 top-0 -z-10 h-[28rem] bg-gradient-to-br from-blue-100 via-white to-violet-100" />
         <div className="mx-auto max-w-7xl px-6 py-16 md:px-8 md:py-24">
